@@ -1,0 +1,20 @@
+{
+    "instructions": "What is your preferred magnifier position?",
+    "no": "No",
+    "yes": "Yes",
+    "nvda": "NVDA",
+    "jaws": "Jaws",
+    "rwg": "Read Write Gold",
+
+    "Lens": "Lens",
+    "FullScreen": "Full Screen",
+    "TopHalf": "Top Half",
+    "BottomHalf": "Bottom Half",
+    "LeftHalf": "Left Half",
+    "RightHalf": "Right Half",
+
+    "yes-tooltip": "Select to turn on screen-flash for sounds",
+    "no-tooltip": "Select to turn off screen-flash for sounds",
+    "yes-tooltipAtSelect": "Screen-flash for sounds is on",
+    "no-tooltipAtSelect": "Screen-flash for sounds is off"
+}

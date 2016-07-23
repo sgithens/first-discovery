@@ -66,6 +66,15 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
                     "message": "%messagePrefix/speakText.json"
                 }
             },
+            "preferredScreenReader": {
+                "type": "gpii.firstDiscovery.preferredScreenReader",
+                "panel": {
+                    "type": "gpii.firstDiscovery.panel.preferredScreenReader",
+                    "container": ".gpiic-fd-prefsEditor-panel-preferredScreenReader",
+                    "template": "%templatePrefix/enumRadio.html",
+                    "message": "%messagePrefix/preferredScreenReader.json"
+                }
+            },
             "speechRate": {
                 "type": "gpii.firstDiscovery.speechRate",
                 "panel": {
@@ -76,37 +85,37 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
                     "gradeNames": ["gpii.firstDiscovery.panel.speechRate.prefsEditorConnection"]
                 }
             },
-            "contrast": {
-                "type": "fluid.prefs.contrast",
-                "classes": {
-                    "default": "fl-theme-prefsEditor-default",
-                    "bw": "fl-theme-prefsEditor-bw fl-theme-bw",
-                    "wb": "fl-theme-prefsEditor-wb fl-theme-wb"
-                },
-                "enactor": {
-                    "type": "fluid.prefs.enactor.contrast",
-                    "classes": "@contrast.classes"
-                },
-                "panel": {
-                    "type": "gpii.firstDiscovery.panel.contrast",
-                    "container": ".gpiic-fd-prefsEditor-panel-contrast",
-                    "classnameMap": {"theme": "@contrast.classes"},
-                    "template": "%templatePrefix/contrast.html",
-                    "message": "%messagePrefix/contrast.json"
-                }
-            },
-            "textSize": {
-                "type": "fluid.prefs.textSize",
-                "enactor": {
-                    "type": "fluid.prefs.enactor.textSize"
-                },
-                "panel": {
-                    "type": "gpii.firstDiscovery.panel.textSize",
-                    "container": ".gpiic-fd-prefsEditor-panel-size",
-                    "template": "%templatePrefix/rangeTemplate.html",
-                    "message": "%messagePrefix/textSize.json"
-                }
-            },
+            // "contrast": {
+            //     "type": "fluid.prefs.contrast",
+            //     "classes": {
+            //         "default": "fl-theme-prefsEditor-default",
+            //         "bw": "fl-theme-prefsEditor-bw fl-theme-bw",
+            //         "wb": "fl-theme-prefsEditor-wb fl-theme-wb"
+            //     },
+            //     "enactor": {
+            //         "type": "fluid.prefs.enactor.contrast",
+            //         "classes": "@contrast.classes"
+            //     },
+            //     "panel": {
+            //         "type": "gpii.firstDiscovery.panel.contrast",
+            //         "container": ".gpiic-fd-prefsEditor-panel-contrast",
+            //         "classnameMap": {"theme": "@contrast.classes"},
+            //         "template": "%templatePrefix/contrast.html",
+            //         "message": "%messagePrefix/contrast.json"
+            //     }
+            // },
+            // "textSize": {
+            //     "type": "fluid.prefs.textSize",
+            //     "enactor": {
+            //         "type": "fluid.prefs.enactor.textSize"
+            //     },
+            //     "panel": {
+            //         "type": "gpii.firstDiscovery.panel.textSize",
+            //         "container": ".gpiic-fd-prefsEditor-panel-size",
+            //         "template": "%templatePrefix/rangeTemplate.html",
+            //         "message": "%messagePrefix/textSize.json"
+            //     }
+            // },
             "onScreenKeyboard": {
                 "type": "gpii.firstDiscovery.onScreenKeyboard",
                 "panel": {
@@ -116,35 +125,74 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
                     "message": "%messagePrefix/onScreenKeyboard.json"
                 }
             },
-            "captions": {
-                "type": "gpii.firstDiscovery.captions",
+            // "captions": {
+            //     "type": "gpii.firstDiscovery.captions",
+            //     "panel": {
+            //         "type": "gpii.firstDiscovery.panel.captions",
+            //         "container": ".gpiic-fd-prefsEditor-panel-captions",
+            //         "template": "%templatePrefix/yesNo.html",
+            //         "message": "%messagePrefix/captions.json"
+            //     }
+            // },
+            // "showSounds": {
+            //     "type": "gpii.firstDiscovery.showSounds",
+            //     "panel": {
+            //         "type": "gpii.firstDiscovery.panel.showSounds",
+            //         "container": ".gpiic-fd-prefsEditor-panel-showSounds",
+            //         "template": "%templatePrefix/yesNo.html",
+            //         "message": "%messagePrefix/showSounds.json"
+            //     }
+            // },
+            "largeResolution": {
+                "type": "gpii.firstDiscovery.largeResolution",
                 "panel": {
-                    "type": "gpii.firstDiscovery.panel.captions",
-                    "container": ".gpiic-fd-prefsEditor-panel-captions",
+                    "type": "gpii.firstDiscovery.panel.largeResolution",
+                    "container": ".gpiic-fd-prefsEditor-panel-largeResolution",
                     "template": "%templatePrefix/yesNo.html",
-                    "message": "%messagePrefix/captions.json"
+                    "message": "%messagePrefix/largeResolution.json"
                 }
             },
-            "showSounds": {
-                "type": "gpii.firstDiscovery.showSounds",
+            "useMagnification": {
+                "type": "gpii.firstDiscovery.useMagnification",
                 "panel": {
-                    "type": "gpii.firstDiscovery.panel.showSounds",
-                    "container": ".gpiic-fd-prefsEditor-panel-showSounds",
+                    "type": "gpii.firstDiscovery.panel.useMagnification",
+                    "container": ".gpiic-fd-prefsEditor-panel-useMagnification",
                     "template": "%templatePrefix/yesNo.html",
-                    "message": "%messagePrefix/showSounds.json"
+                    "message": "%messagePrefix/useMagnification.json"
                 }
             },
-            "keyboard": {
-                "type": "gpii.firstDiscovery.stickyKeys",
+            "magnifierPosition": {
+                "type": "gpii.firstDiscovery.magnifierPosition",
                 "panel": {
-                    "type": "gpii.firstDiscovery.panel.keyboard",
-                    "container": ".gpiic-fd-prefsEditor-panel-keyboard",
-                    "template": "%templatePrefix/keyboard.html",
-                    "message": "%messagePrefix/keyboard.json",
-                    "gradeNames": ["gpii.firstDiscovery.panel.keyboardTts", "gpii.firstDiscovery.panel.keyboard.prefEditorConnection"],
-                    "keyboardInputGradeNames": ["gpii.firstDiscovery.keyboardInputTts"]
+                    "type": "gpii.firstDiscovery.panel.magnifierPosition",
+                    "container": ".gpiic-fd-prefsEditor-panel-magnifierPosition",
+                    "template": "%templatePrefix/enumRadio.html",
+                    "message": "%messagePrefix/magnifierPosition.json"
                 }
             },
+            "magnification": {
+                "type": "gpii.firstDiscovery.magnification",
+                // "enactor": {
+                //     "type": "fluid.prefs.enactor.magnification"
+                // },
+                "panel": {
+                    "type": "gpii.firstDiscovery.panel.magnification",
+                    "container": ".gpiic-fd-prefsEditor-panel-magnification",
+                    "template": "%templatePrefix/rangeTemplate.html",
+                    "message": "%messagePrefix/magnification.json"
+                }
+            },
+            // "keyboard": {
+            //     "type": "gpii.firstDiscovery.stickyKeys",
+            //     "panel": {
+            //         "type": "gpii.firstDiscovery.panel.keyboard",
+            //         "container": ".gpiic-fd-prefsEditor-panel-keyboard",
+            //         "template": "%templatePrefix/keyboard.html",
+            //         "message": "%messagePrefix/keyboard.json",
+            //         "gradeNames": ["gpii.firstDiscovery.panel.keyboardTts", "gpii.firstDiscovery.panel.keyboard.prefEditorConnection"],
+            //         "keyboardInputGradeNames": ["gpii.firstDiscovery.keyboardInputTts"]
+            //     }
+            // },
             "congratulations": {
                 "type": "gpii.firstDiscovery.congratulations",
                 "panel": {
@@ -205,6 +253,17 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
                 "type": "string",
                 "default": "en-US",
                 "enum": ["en-US", "fr-FR", "es-MX", "de-DE", "nl-NL", "sv-SE"]
+            }
+        }
+    });
+
+    fluid.defaults("gpii.firstDiscovery.schemas.preferredScreenReader", {
+        gradeNames: ["fluid.prefs.schemas"],
+        schema: {
+            "gpii.firstDiscovery.preferredScreenReader": {
+                "type": "string",
+                "default": "nvda",
+                "enum": ["nvda", "jaws", "rwg"]
             }
         }
     });
@@ -284,5 +343,51 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             }
         }
     });
+
+    fluid.defaults("gpii.firstDiscovery.schemas.largeResolution", {
+        gradeNames: ["fluid.prefs.schemas"],
+        schema: {
+            "gpii.firstDiscovery.largeResolution": {
+                "type": "boolean",
+                "default": false
+            }
+        }
+    });
+
+    fluid.defaults("gpii.firstDiscovery.schemas.useMagnification", {
+        gradeNames: ["fluid.prefs.schemas"],
+        schema: {
+            "gpii.firstDiscovery.useMagnification": {
+                "type": "boolean",
+                "default": false
+            }
+        }
+    });
+
+    fluid.defaults("gpii.firstDiscovery.schemas.magnifierPosition", {
+        gradeNames: ["fluid.prefs.schemas"],
+        schema: {
+            "gpii.firstDiscovery.magnifierPosition": {
+                "type": "string",
+                "default": "TopHalf",
+                "enum": ["Lens", "FullScreen", "TopHalf", "BottomHalf", "LeftHalf", "RightHalf"]
+            }
+        }
+    });
+
+    fluid.defaults("gpii.firstDiscovery.schemas.magnification", {
+        gradeNames: ["fluid.prefs.schemas"],
+        schema: {
+            "gpii.firstDiscovery.magnification": {
+                "type": "number",
+                "default": 1,
+                "minimum": 1,
+                "maximum": 4,
+                "divisibleBy": 0.5
+            }
+        }
+    });
+
+
 
 })(jQuery, fluid);

@@ -448,6 +448,109 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
         }
     });
 
+    /* 
+     * The base component for enumerated choice panels
+     */
+    fluid.defaults("gpii.firstDiscovery.panel.enumRadio", {
+        // gradeNames: ["gpii.firstDiscovery.attachTooltip.renderer", "fluid.prefs.panel"],
+        gradeNames: ["fluid.prefs.panel"],
+        modelRelay: [{
+            source: "{that}.model.choice",
+            target: "{that}.model.value",
+            // Setup the backward restriction to prevent the component instantiation writes back to
+            // the central model that results in wiping out the saved prefs at the page reload.
+            forward: "liveOnly",
+            singleTransform: {
+                type: "fluid.transforms.valueMapper",
+                inputPath: "",
+                options: {
+                    "yes": true,
+                    "no": {
+                        outputValue: false
+                    }
+                }
+            }
+        }, {
+            source: "{that}.model.choice",
+            target: "currentSelectedIndex",
+            backward: "never",
+            singleTransform: {
+                type: "fluid.transforms.indexOf",
+                array: "{that}.options.controlValues.choice",
+                value: "{that}.model.choice"
+            }
+        }],
+        tooltipContentMap: {
+            choiceLabel: {
+                tooltip: ["yes-tooltip", "no-tooltip"],
+                tooltipAtSelect: ["yes-tooltipAtSelect", "no-tooltipAtSelect"]
+            },
+            choiceInput: {
+                tooltip: ["yes-tooltip", "no-tooltip"],
+                tooltipAtSelect: ["yes-tooltipAtSelect", "no-tooltipAtSelect"]
+            }
+        },
+        stringArrayIndex: {
+            choice: ["yes", "no"]
+        },
+        selectors: {
+            choiceRow: ".gpiic-fd-enumRadio-choiceRow",
+            choiceLabel: ".gpiic-fd-enumRadio-choiceLabel",
+            choiceInput: ".gpiic-fd-enumRadio-choiceInput",
+            instructions: ".gpiic-fd-enumRadio-instructions"
+        },
+        controlValues: {
+            choice: ["yes", "no"]
+        },
+        repeatingSelectors: ["choiceRow"],
+        invokers: {
+            produceTree: {
+                funcName: "gpii.firstDiscovery.panel.enumRadio.produceTree",
+                args: "{that}"
+            }
+        }
+    });
+
+    gpii.firstDiscovery.panel.enumRadio.produceTree = function () {
+        // Make sure each derived panel using enumRadio grade has a unique
+        // selectID, the name used for inputs.
+        var selectID = fluid.allocateGuid();
+        var protoTree = {
+            instructions: {messagekey: "instructions"},
+            expander: {
+                type: "fluid.renderer.selection.inputs",
+                rowID: "choiceRow",
+                labelID: "choiceLabel",
+                inputID: "choiceInput",
+                selectID: selectID,
+                tree: {
+                    optionnames: "${{that}.msgLookup.choice}",
+                    optionlist: "${{that}.options.controlValues.choice}",
+                    selection: "${choice}"
+                }
+            }
+        };
+        return protoTree;
+    };
+
+    /*
+     * Text to speech panel
+     */
+    fluid.defaults("gpii.firstDiscovery.panel.preferredScreenReader", {
+        gradeNames: ["gpii.firstDiscovery.panel.enumRadio"],
+        preferenceMap: {
+            "gpii.firstDiscovery.preferredScreenReader": {
+                "model.value": "default"
+            }
+        },
+        controlValues: {
+            choice: ["nvda", "jaws", "rwg"]
+        },
+        stringArrayIndex: {
+            choice: ["nvda", "jaws", "rwg"]
+        }
+    });
+
     /*
      * The base component for all yes-no-selection panels
      */
@@ -576,6 +679,63 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
         preferenceMap: {
             "gpii.firstDiscovery.showSounds": {
                 "model.value": "default"
+            }
+        }
+    });
+
+    /*
+     * Large Resolution
+     */
+    fluid.defaults("gpii.firstDiscovery.panel.largeResolution", {
+        gradeNames: ["gpii.firstDiscovery.panel.yesNo"],
+        preferenceMap: {
+            "gpii.firstDiscovery.largeResolution": {
+                "model.value": "default"
+            }
+        }
+    });
+
+    /*
+     * Use Magnification 
+     */
+    fluid.defaults("gpii.firstDiscovery.panel.useMagnification", {
+        gradeNames: ["gpii.firstDiscovery.panel.yesNo"],
+        preferenceMap: {
+            "gpii.firstDiscovery.useMagnification": {
+                "model.value": "default"
+            }
+        }
+    });
+
+    /*
+     * Magnification Position
+     */
+    fluid.defaults("gpii.firstDiscovery.panel.magnifierPosition", {
+        gradeNames: ["gpii.firstDiscovery.panel.enumRadio"],
+        preferenceMap: {
+            "gpii.firstDiscovery.magnifierPosition": {
+                "model.value": "default"
+            }
+        },
+        controlValues: {
+            choice: ["Lens", "FullScreen", "TopHalf", "BottomHalf", "LeftHalf", "RightHalf"]
+        },
+        stringArrayIndex: {
+            choice: ["Lens", "FullScreen", "TopHalf", "BottomHalf", "LeftHalf", "RightHalf"]
+        }
+    });
+
+    /*
+     * Text size panel
+     */
+    fluid.defaults("gpii.firstDiscovery.panel.magnification", {
+        gradeNames: ["gpii.firstDiscovery.panel.ranged"],
+        preferenceMap: {
+            "gpii.firstDiscovery.magnification": {
+                "model.value": "default",
+                "range.min": "minimum",
+                "range.max": "maximum",
+                "step": "divisibleBy"
             }
         }
     });
@@ -1142,5 +1302,7 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             }
         }
     });
+
+
 
 })(jQuery, fluid);
