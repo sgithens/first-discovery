@@ -3,8 +3,8 @@
     "no": "No",
     "yes": "Yes",
 
-    "yes-tooltip": "Select to turn on screen-flash for sounds",
-    "no-tooltip": "Select to turn off screen-flash for sounds",
-    "yes-tooltipAtSelect": "Screen-flash for sounds is on",
-    "no-tooltipAtSelect": "Screen-flash for sounds is off"
+    "yes-tooltip": "Select to turn on the screen magnifier",
+    "no-tooltip": "Select to turn off the screen magnifier",
+    "yes-tooltipAtSelect": "Screen magnifier is on",
+    "no-tooltipAtSelect": "Screen magnifier is off"
 }

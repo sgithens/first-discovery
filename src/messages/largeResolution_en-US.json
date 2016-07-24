@@ -1,10 +1,10 @@
 {
-    "instructions": "Do you want a larger screen?",
+    "instructions": "Would you just like everything larger on screen without using a magnifier?",
     "no": "No",
     "yes": "Yes",
 
-    "yes-tooltip": "Select to turn on screen-flash for sounds",
-    "no-tooltip": "Select to turn off screen-flash for sounds",
-    "yes-tooltipAtSelect": "Screen-flash for sounds is on",
-    "no-tooltipAtSelect": "Screen-flash for sounds is off"
+    "yes-tooltip": "Select to make screen contents larger",
+    "no-tooltip": "Select to leave screen contents the usual size",
+    "yes-tooltipAtSelect": "Screen contents are larger",
+    "no-tooltipAtSelect": "Screen contents are usual size"
 }

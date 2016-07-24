@@ -25,7 +25,7 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
         },
         selectors: {
             navButtons: ".gpiic-fd-navButtons",
-            navIcons: ".gpiic-fd-navIcons",
+            // navIcons: ".gpiic-fd-navIcons",
             stepCount: ".gpiic-fd-stepCountMsg"
         },
         components: {
@@ -41,17 +41,17 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
                     panelTotalNum: "{nav}.options.panelTotalNum"
                 }
             },
-            navIcons: {
-                type: "gpii.firstDiscovery.navIcons",
-                container: "{nav}.dom.navIcons",
-                options: {
-                    model: {
-                        currentPanelNum: "{nav}.model.currentPanelNum",
-                        visitedPanelNums: "{nav}.model.visitedPanelNums"
-                    },
-                    styles: "{nav}.options.styles"
-                }
-            },
+            // navIcons: {
+            //     type: "gpii.firstDiscovery.navIcons",
+            //     container: "{nav}.dom.navIcons",
+            //     options: {
+            //         model: {
+            //             currentPanelNum: "{nav}.model.currentPanelNum",
+            //             visitedPanelNums: "{nav}.model.visitedPanelNums"
+            //         },
+            //         styles: "{nav}.options.styles"
+            //     }
+            // },
             stepCount: {
                 type: "gpii.firstDiscovery.stepCount",
                 container: "{that}.dom.stepCount",

@@ -718,10 +718,10 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             }
         },
         controlValues: {
-            choice: ["Lens", "FullScreen", "TopHalf", "BottomHalf", "LeftHalf", "RightHalf"]
+            choice: ["Lens", "FullScreen", "TopHalf"] //, "BottomHalf", "LeftHalf", "RightHalf"]
         },
         stringArrayIndex: {
-            choice: ["Lens", "FullScreen", "TopHalf", "BottomHalf", "LeftHalf", "RightHalf"]
+            choice: ["Lens", "FullScreen", "TopHalf"] //, "BottomHalf", "LeftHalf", "RightHalf"]
         }
     });
 

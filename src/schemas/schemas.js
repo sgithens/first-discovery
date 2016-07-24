@@ -370,7 +370,7 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             "gpii.firstDiscovery.magnifierPosition": {
                 "type": "string",
                 "default": "TopHalf",
-                "enum": ["Lens", "FullScreen", "TopHalf", "BottomHalf", "LeftHalf", "RightHalf"]
+                "enum": ["Lens", "FullScreen", "TopHalf"] //, "BottomHalf", "LeftHalf", "RightHalf"]
             }
         }
     });

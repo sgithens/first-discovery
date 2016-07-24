@@ -1,5 +1,5 @@
 {
-    "instructions": "Do you have a preffered application for reading text on the screen?",
+    "instructions": "Do you have a preferred application for reading text on the screen?",
     "no": "No",
     "yes": "Yes",
     "nvda": "NVDA",

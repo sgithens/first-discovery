@@ -1,7 +1,7 @@
 {
     "rangeInstructions": "What is your preferred magnification level?",
-    "maxLabel": "max",
-    "minLabel": "min",
+    "maxLabel": "400%",
+    "minLabel": "100%",
     "increaseLabel": "larger",
     "decreaseLabel": "smaller"
 }
