@@ -1230,9 +1230,10 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
         },
         selectors: {
             message: ".gpiic-fd-token-message",
-            token: ".gpiic-fd-token"
+            token: ".gpiic-fd-token",
+            closebutton: ".gpiic-fd-closebutton"
         },
-        selectorsToIgnore: ["token"],
+        selectorsToIgnore: ["token", "closebutton"],
         protoTree: {
             message: {
                 markup: {messagekey: "message"}
@@ -1250,9 +1251,18 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
             "onError.showErrorMsg": {
                 funcName: "{that}.showTokenText",
                 args: ["{that}.msgLookup.error"]
+            },
+            "afterRender.closeButton": {
+                "this": "{that}.dom.closebutton",
+                "method": "click",
+                "args": ["{that}.closeApp"]
             }
         },
         invokers: {
+            closeApp: {
+                "this": "{that}.dom.closebutton",
+                funcName: "gpii.firstDiscovery.panel.token.closeApp"
+            },
             showTokenText: {
                 "this": "{that}.dom.token",
                 method: "html",
@@ -1265,19 +1275,33 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
         }
     });
 
+    gpii.firstDiscovery.panel.token.closeApp = function (that) {
+        const {ipcRenderer} = nodeRequire("electron");
+        ipcRenderer.send("close-main-window");
+    };
+
     gpii.firstDiscovery.panel.token.savePrefsToServer = function (that, data, isReadyToSave) {
         if (!isReadyToSave) {
             return;
         }
 
+        var contextualData = {
+            contexts: {
+                "gpii-default": {
+                    "name": "Default Preferences",
+                    "preferences": data
+                }
+            }
+        }
+
         var saveRequestConfig = that.options.saveRequestConfig,
-            data = JSON.stringify(data),
+            data = JSON.stringify(contextualData),
             view = saveRequestConfig.view || "",
             url = fluid.stringTemplate(saveRequestConfig.url, {view: view});
-
+        console.log("Here is the data\n\n"+data);
         $.ajax({
-            url: url,
-            method: saveRequestConfig.method,
+            url: "http://localhost:8081/preferences/demouser1?view=firstDiscovery",
+            method: "PUT",
             contentType: "application/json",
             dataType: "json",
             data: data,
@@ -1288,6 +1312,19 @@ https://raw.githubusercontent.com/GPII/first-discovery/master/LICENSE.txt
                 that.events.onError.fire(jqXHR, textStatus, errorThrown);
             }
         });
+        // $.ajax({
+        //     url: url,
+        //     method: saveRequestConfig.method,
+        //     contentType: "application/json",
+        //     dataType: "json",
+        //     data: data,
+        //     success: function (data, textStatus, jqXHR) {
+        //         that.events.onSuccess.fire(data, textStatus, jqXHR);
+        //     },
+        //     error: function (jqXHR, textStatus, errorThrown) {
+        //         that.events.onError.fire(jqXHR, textStatus, errorThrown);
+        //     }
+        // });
     };
 
     // A grade component to connect "gpii.firstDiscovery.prefsServerIntegration" and

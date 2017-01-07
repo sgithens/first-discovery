@@ -1,4 +1,5 @@
 {
     "message": "To apply your preferences to any device (a computer, a tablet, a mobile phone, etc), record the following token:",
-    "error": "Sorry, a token could not be generated at this time."
+    "error": "Sorry, a token could not be generated at this time.",
+    "closeButton": "Close Editor"
 }

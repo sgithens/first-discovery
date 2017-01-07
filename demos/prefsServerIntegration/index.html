@@ -13,6 +13,14 @@
         <link rel="stylesheet" type="text/css" href="../../src/lib/infusion/src/framework/preferences/css/Enactors.css" />
         <link rel="stylesheet" type="text/css" href="../../src/lib/infusion/src/framework/preferences/css/PrefsEditor.css" />
 
+        <!-- So we can run inside of an Electron renderer process -->
+        <script>
+            window.nodeRequire = require;
+            delete window.require;
+            delete window.exports;
+            delete window.module;
+        </script>
+
         <script type="text/javascript" src="../../src/lib/infusion/infusion-custom.js"></script>
         <script type="text/javascript" src="../../src/js/keyboardShortcut.js"></script>
         <script type="text/javascript" src="../../src/js/ttsHookup.js"></script>
@@ -33,7 +41,7 @@
         <script type="text/javascript" src="../../src/js/firstDiscoveryEditor.js"></script>
         <script type="text/javascript" src="../js/demos.js"></script>
 
-        <title>Preferences Editor</title>
+        <title>GPII Preferences Editor</title>
     </head>
 
     <body>
@@ -118,6 +126,7 @@
         <script type="text/javascript">
             // specify the demo-specific version of the aux schema, which overrides the default paths
             demo.firstDiscovery.init("#gpiic-fd", "demo.firstDiscovery.auxSchema.prefsServerIntegration", "demo-firstDiscovery-integration");
+
         </script>
     </body>
 </html>
